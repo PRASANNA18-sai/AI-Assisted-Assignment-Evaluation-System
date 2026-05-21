@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AI Assisted Assignment Evaluation System</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="logo">
+      EduAI
+    </div>
+
+    <ul>
+
+      <li>
+        <a href="#" onclick="showPage('homePage')">Home</a>
+      </li>
+
+      <li>
+        <a href="#" onclick="showPage('loginPage')">Login</a>
+      </li>
+
+      <li>
+        <a href="#" onclick="showPage('dashboardPage')">Dashboard</a>
+      </li>
+
+    </ul>
+
+  </nav>
+
+  <!-- HOME PAGE -->
+
+  <section id="homePage" class="page active">
+
+    <div class="hero-section">
+
+      <div class="hero-left">
+
+        <h1>
+          AI Assisted Assignment Evaluation System
+        </h1>
+
+        <p>
+          A modern academic platform that helps students and faculty manage
+          assignment submissions, plagiarism checking, AI based evaluation,
+          grading workflows, and deadline tracking in a smarter and easier way.
+        </p>
+
+        <div class="hero-buttons">
+
+          <button onclick="showPage('loginPage')" class="primary-btn">
+            Student Login
+          </button>
+
+          <button onclick="showPage('loginPage')" class="secondary-btn">
+            Faculty Login
+          </button>
+
+        </div>
+
+      </div>
+
+      <div class="hero-right">
+
+        <div class="info-card">
+
+          <h2>AI Evaluation Preview</h2>
+
+          <div class="mini-card">
+            <h4>Similarity Score</h4>
+            <p>24% Similarity Detected</p>
+          </div>
+
+          <div class="mini-card">
+            <h4>AI Feedback</h4>
+            <p>
+              Good structure and neat explanation. Add more examples.
+            </p>
+          </div>
+
+          <div class="mini-card">
+            <h4>Suggested Marks</h4>
+            <p>8/10</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- FEATURES -->
+
+    <div class="features-section">
+
+      <h2>Core Features</h2>
+
+      <div class="feature-grid">
+
+        <div class="feature-card">
+          <h3>📤 Assignment Upload</h3>
+          <p>
+            Students can upload assignments before deadlines securely.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <h3>🤖 AI Evaluation</h3>
+          <p>
+            AI provides similarity checking and rough evaluation support.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <h3>📊 Faculty Dashboard</h3>
+          <p>
+            Faculty can manage submissions and grading efficiently.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <h3>⏰ Deadline Alerts</h3>
+          <p>
+            Automatic alerts notify students before due dates.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- LOGIN PAGE -->
+
+  <section id="loginPage" class="page">
+
+    <div class="login-container">
+
+      <div class="login-box">
+
+        <h2>Login Portal</h2>
+
+        <input type="email" id="email" placeholder="Enter Email">
+
+        <input type="password" id="password" placeholder="Enter Password">
+
+        <select id="role">
+
+          <option value="">Select Role</option>
+
+          <option>Student</option>
+
+          <option>Faculty</option>
+
+          <option>Admin</option>
+
+        </select>
+
+        <p id="errorMessage"></p>
+
+        <button onclick="loginUser()" class="login-btn">
+          Login
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- DASHBOARD -->
+
+  <section id="dashboardPage" class="page">
+
+    <div class="dashboard">
+
+      <!-- SIDEBAR -->
+
+      <div class="sidebar">
+
+        <h2>Dashboard</h2>
+
+        <button onclick="showSection('overviewSection')">
+          Overview
+        </button>
+
+        <button onclick="showSection('assignmentSection')">
+          Assignments
+        </button>
+
+        <button onclick="showSection('uploadSection')">
+          Upload
+        </button>
+
+        <button onclick="showSection('aiSection')">
+          AI Reports
+        </button>
+
+        <button onclick="showSection('historySection')">
+          History
+        </button>
+
+        <button onclick="logoutUser()">
+          Logout
+        </button>
+
+      </div>
+
+      <!-- MAIN CONTENT -->
+
+      <div class="main-content">
+
+        <!-- OVERVIEW -->
+
+        <div id="overviewSection" class="dashboard-section active-section">
+
+          <div class="card-grid">
+
+            <div class="dashboard-card">
+              <h3>Total Assignments</h3>
+              <p>12</p>
+            </div>
+
+            <div class="dashboard-card">
+              <h3>Submitted</h3>
+              <p>8</p>
+            </div>
+
+            <div class="dashboard-card">
+              <h3>Pending</h3>
+              <p>3</p>
+            </div>
+
+            <div class="dashboard-card">
+              <h3>Late</h3>
+              <p>1</p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- ASSIGNMENTS -->
+
+        <div id="assignmentSection" class="dashboard-section">
+
+          <div class="content-box">
+
+            <h2>Assignments</h2>
+
+            <table>
+
+              <tr>
+                <th>Subject</th>
+                <th>Status</th>
+                <th>Deadline</th>
+              </tr>
+
+              <tr>
+                <td>Frontend Development</td>
+                <td>Submitted</td>
+                <td>12 May 2026</td>
+              </tr>
+
+              <tr>
+                <td>UI Engineering</td>
+                <td>Pending</td>
+                <td>15 May 2026</td>
+              </tr>
+
+            </table>
+
+          </div>
+
+        </div>
+
+        <!-- UPLOAD -->
+
+        <div id="uploadSection" class="dashboard-section">
+
+          <div class="content-box">
+
+            <h2>Upload Assignment</h2>
+
+            <input type="text" placeholder="Enter Subject Name">
+
+            <input type="file">
+
+            <button class="upload-btn">
+              Upload Assignment
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- AI REPORT -->
+
+        <div id="aiSection" class="dashboard-section">
+
+          <div class="content-box">
+
+            <h2>AI Evaluation Report</h2>
+
+            <div class="report-card">
+              <h4>Similarity</h4>
+              <p>22%</p>
+            </div>
+
+            <div class="report-card">
+              <h4>AI Feedback</h4>
+              <p>
+                Well structured assignment. Add more real time examples.
+              </p>
+            </div>
+
+            <div class="report-card">
+              <h4>Suggested Marks</h4>
+              <p>8/10</p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- HISTORY -->
+
+        <div id="historySection" class="dashboard-section">
+
+          <div class="content-box">
+
+            <h2>Submission History</h2>
+
+            <ul>
+
+              <li>
+                Frontend Assignment Submitted Successfully
+              </li>
+
+              <li>
+                Database Assignment Submitted Late
+              </li>
+
+              <li>
+                UI Assignment Under Review
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    © 2026 AI Assisted Assignment Evaluation System
+
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
